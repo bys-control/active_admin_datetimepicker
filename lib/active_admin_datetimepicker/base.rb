@@ -5,7 +5,7 @@ module ActiveAdminDatetimepicker
     end
 
     mattr_accessor :format do
-      '%Y-%m-%d %H:%M'
+      '%d-%m-%Y- %H:%M'
     end
 
     def html_class
@@ -28,7 +28,7 @@ module ActiveAdminDatetimepicker
 
     def input_value(input_name = nil)
       val = object.public_send(input_name || method)
-      return DateTime.new(val.year, val.month, val.day, val.hour, val.min).strftime(format) if val.is_a?(Time)
+      return DateTime.new(val.day,val.month,val.year, val.hour, val.min).strftime(format) if val.is_a?(Time)
       val.to_s
     end
 
