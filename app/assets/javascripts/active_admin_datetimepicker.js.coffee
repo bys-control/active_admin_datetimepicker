@@ -2,8 +2,8 @@
 
 @setupDateTimePicker = (container) ->
   defaults = {
-    formatDate: 'y-m-d',
-    format: 'Y-m-d H:i',
+    formatDate: 'd-m-y',
+    format: 'd-m-Y H:i',
     allowBlank: true,
     defaultSelect: false,
     validateOnBlur: false
