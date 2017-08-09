@@ -17,7 +17,7 @@ module ActiveAdminDatetimepicker
       {}
     end
 
-    def input_html_options(input_name = nil)
+    def input_html_options(input_name = nil, placeholder = gt_input_placeholder)
       options = {}
       options[:class] = [self.options[:class], html_class].compact.join(' ')
       options[:data] ||= input_html_data
