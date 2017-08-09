@@ -1,8 +1,9 @@
 module ActiveAdminDatetimepicker
   module Base
-    mattr_accessor :default_datetime_picker_options do
-      {}
-    end
+    mattr_accessor :default_datetime_picker_options
+    @@default_datetime_picker_options = {}
+    mattr_accessor :format
+    @@format = '%Y-%m-%d %H:%M'
 
     mattr_accessor :format do
       '%d-%m-%Y- %H:%M'
@@ -28,7 +29,7 @@ module ActiveAdminDatetimepicker
 
     def input_value(input_name = nil)
       val = object.public_send(input_name || method)
-      return DateTime.new(val.year, val.month, val.day, val.hour, val.min).strftime(format) if val.is_a?(Time)
+      return DateTime.new(val.year, val.month, val.day, val.hour, val.min, val.sec).strftime(format) if val.is_a?(Time)
       val.to_s
     end
 
