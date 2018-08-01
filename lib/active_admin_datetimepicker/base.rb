@@ -24,6 +24,8 @@ module ActiveAdminDatetimepicker
       options[:data].merge!(datepicker_options: datetime_picker_options)
       options[:value] ||= input_value(input_name)
       options[:maxlength] = 19
+      options[:autocomplete] = 'off'
+
       options
     end
 
