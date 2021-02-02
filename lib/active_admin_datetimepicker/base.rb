@@ -5,6 +5,10 @@ module ActiveAdminDatetimepicker
     mattr_accessor :format
     @@format = '%Y-%m-%d %H:%M'
 
+    mattr_accessor :format do
+      '%d-%m-%Y- %H:%M'
+    end
+
     def html_class
       'date-time-picker'
     end
@@ -13,13 +17,15 @@ module ActiveAdminDatetimepicker
       {}
     end
 
-    def input_html_options(input_name = nil, placeholder = nil)
+    def input_html_options(input_name = nil, placeholder = gt_input_placeholder)
       options = {}
       options[:class] = [self.options[:class], html_class].compact.join(' ')
       options[:data] ||= input_html_data
       options[:data].merge!(datepicker_options: datetime_picker_options)
       options[:value] ||= input_value(input_name)
       options[:maxlength] = 19
+      options[:autocomplete] = 'off'
+
       options
     end
 

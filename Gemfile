@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in active_admin_datetimepicker.gemspec
+gem "xdan-datetimepicker-rails", "~> 2.4.4", github: "https://github.com/bys-control/xdan-datetimepicker-rails"
 gemspec
 group :test do
   default_rails_version = '4.2.7'
